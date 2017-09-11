@@ -4,8 +4,8 @@ angular.module('video-player')
   controller: function() {    
     this.videos = exampleVideoData;
     this.currentVideo = this.videos[0];
-    this.select = (index) => {
-      this.currentVideo = this.videos[index];
+    this.selectVideo = (video) => {
+      this.currentVideo = video;
     };
     this.searchResults = function() {};
   },

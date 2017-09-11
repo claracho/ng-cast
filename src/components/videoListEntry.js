@@ -2,8 +2,7 @@ angular.module('video-player')
 .component('videoListEntry', {
   bindings: {
     video: '<',
-    select: '<',
-    index: '<'
+    onClick: '<'
   },
   templateUrl: 'src/templates/videoListEntry.html'
 });

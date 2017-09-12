@@ -7,8 +7,17 @@ angular.module('video-player')
     this.youTube = youTube;
     this.videos = [];
     this.currentVideo = {};
-
+    this.currentAutoPlay = false;
+    this.nextAutoPlay = true;
+  
+    this.toggleAutoPlay = () => {
+      this.nextAutoPlay = !this.nextAutoPlay;
+    };
+  
     this.selectVideo = (video) => {
+      // update currentAutoPlay option
+      this.currentAutoPlay = this.nextAutoPlay;
+
       // assign current video of app
       this.currentVideo = video;
 
@@ -32,6 +41,8 @@ angular.module('video-player')
 
     // search for default query at initialization
     this.youTube.search(DEFAULT_QUERY, this.searchResults.bind(this));
+
+    this.toggleAutoPlay = this.toggleAutoPlay.bind(this);
   },
   templateUrl: 'src/templates/app.html'
 });

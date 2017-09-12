@@ -1,7 +1,8 @@
 angular.module('video-player')
 .component('videoPlayer', {
   bindings: {
-    video: '<'
+    video: '<',
+    currentAutoPlay: '<'
   },
   templateUrl: 'src/templates/videoPlayer.html'
 });

@@ -1,3 +1,13 @@
 <ul class="video-list">
-  <video-list-entry ng-repeat="video in $ctrl.videos" video="video" on-click="$ctrl.onClick"></video-list-entry>
+  <input
+    type="button"
+    value="Auto Play {{ $ctrl.nextAutoPlay ? 'Off' : 'On' }}"
+    ng-click="$ctrl.toggleAutoPlay()"
+  >
+  <video-list-entry
+    ng-repeat="video in $ctrl.videos"
+    video="video"
+    on-click="$ctrl.onClick"
+  >
+  </video-list-entry>
 </ul>

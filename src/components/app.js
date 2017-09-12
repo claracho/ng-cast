@@ -1,13 +1,19 @@
+const DEFAULT_QUERY = 'cat';
+
 angular.module('video-player')
 
 .component('app', {
-  controller: function() {    
-    this.videos = exampleVideoData;
-    this.currentVideo = this.videos[0];
+  controller: function(youTube) {    
+    this.videos = [];
+    this.currentVideo = {};
     this.selectVideo = (video) => {
       this.currentVideo = video;
     };
-    this.searchResults = function() {};
+    this.searchResults = (videos) => {
+      this.videos = videos;
+      this.currentVideo = videos.length ? videos[0] : {};
+    };
+    youTube.search(DEFAULT_QUERY, this.searchResults);
   },
   templateUrl: 'src/templates/app.html'
 });

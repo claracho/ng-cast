@@ -13,7 +13,7 @@ angular.module('video-player')
       this.videos = videos;
       this.currentVideo = videos.length ? videos[0] : {};
     };
-    youTube.search(DEFAULT_QUERY, this.searchResults);
+    youTube.search(DEFAULT_QUERY, this.searchResults.bind(this));
   },
   templateUrl: 'src/templates/app.html'
 });

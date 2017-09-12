@@ -18,7 +18,6 @@ angular.module('video-player')
       params: data
     })
     .then(function(response) {
-      console.log(response);
       callback(response.data.items);
     }, function() {
       console.error('Failed to fetch data from YouTube');

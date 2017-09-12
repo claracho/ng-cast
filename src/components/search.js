@@ -9,7 +9,16 @@ angular.module('video-player')
     this.searchResult = (query) => {
       this.service.search(query, this.result);
     };
-    this.searchResult = _.debounce(this.searchResult.bind(this), 500);
+
+    // invoke searchResult immediately
+    this.immediateSearchResult = (query, event) => {
+      if (event.type === 'click' || event.keyCode === 13) {
+        this.searchResult(query);
+      }
+    };
+
+    // create debounced version of searchResult
+    this.debouncedSearchResult = _.debounce(this.searchResult.bind(this), 500);
   },
   templateUrl: 'src/templates/search.html'
 });

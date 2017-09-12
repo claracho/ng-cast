@@ -1,6 +1,11 @@
 <div class="search-bar form-inline">
-  <input class="form-control" type="text" ng-model="query" ng-change="$ctrl.searchResult(query)" />
-  <button class="btn" ng-click="$ctrl.searchResult(query)">
+  <input 
+    class="form-control" 
+    type="text" 
+    ng-model="query" 
+    ng-change="$ctrl.debouncedSearchResult(query)"
+    ng-keypress="$ctrl.immediateSearchResult(query, $event)" />
+  <button class="btn" ng-click="$ctrl.immediateSearchResult(query, $event)">
     <span class="glyphicon glyphicon-search"></span>
   </button>
 </div>
